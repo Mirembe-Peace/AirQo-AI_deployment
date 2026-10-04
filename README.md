@@ -11,6 +11,7 @@ monitors drift with Evidently AI and runs on RunPod.
 | Saved ensemble model | `models/stacking_ensemble_pm25.joblib` |
 | Presentation (UCU template) | `deliverables/AirQo_PM25_Presentation.pptx` |
 | Study guide (Word) | `deliverables/AirQo_PM25_Study_Guide.docx` |
+| LaTeX report (+ compiled PDF) | `report/AirQo_PM25_Report.tex`, `report/AirQo_PM25_Report.pdf` |
 | Forecasts (daily 1–16 Aug, hourly 1 Aug, 13:00 map list) | `outputs/forecasts/` |
 | Figures | `outputs/figures/` |
 | Evidently reports (open in a browser) | `outputs/evidently/` |
@@ -34,6 +35,7 @@ pip install -r deployment/requirements.txt
 jupyter nbconvert --to notebook --execute --inplace AirQo_PM25_Pipeline.ipynb   # ~4 min on CPU
 python notebook_src/build_presentation.py "templates/UCU-power-point template.pptx"
 node notebook_src/build_study_guide.js        # needs the `docx` npm package
+cd report && pdflatex AirQo_PM25_Report.tex && pdflatex AirQo_PM25_Report.tex   # figures are read from ../outputs/figures
 ```
 The notebook is generated from `notebook_src/airqo_pm25_pipeline.py` (jupytext percent format):
 `jupytext --to notebook notebook_src/airqo_pm25_pipeline.py -o AirQo_PM25_Pipeline.ipynb`.

@@ -482,7 +482,7 @@ c.push(table([
   ["Forecasts & figures", "outputs/forecasts/*.csv, outputs/figures/*.png", "Done"],
   ["Evidently reports", "outputs/evidently/*.html (open in a browser)", "Done"],
   ["RunPod run", "deployment/run_on_runpod.sh + RUNPOD_GUIDE.md", "**You must run it on your own RunPod account and add screenshots/logs**"],
-  ["LaTeX report", "–", "**Not produced yet: required by the brief** (this guide and the notebook contain all the content)"],
+  ["LaTeX report", "report/AirQo_PM25_Report.tex (+ compiled PDF)", "Done. **Add the RunPod screenshots in the yellow box of Section 8 and recompile**"],
 ], [2400, 4300, CONTENT_W - 6700]));
 c.push(gap());
 c.push(H2("References"));
