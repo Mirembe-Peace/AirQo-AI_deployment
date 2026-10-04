@@ -1,0 +1,3 @@
+site_name,latitude,longitude,pred_pm25,aqi_category
+Sir Apollo Kagwa Road,0.33354,32.56861,50.353077,Unhealthy for Sensitive Groups
+Kamwokya Primary School,0.347510781,32.58902449,37.207855,Unhealthy for Sensitive Groups

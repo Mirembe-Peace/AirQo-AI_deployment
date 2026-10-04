@@ -1,0 +1,43 @@
+2026-10-04 03:26:36,113 | INFO | ENV python: 3.11.15
+2026-10-04 03:26:36,114 | INFO | ENV platform: Linux-6.18.44-fc-v64-x86_64-with-glibc2.39
+2026-10-04 03:26:36,114 | INFO | ENV processor: x86_64
+2026-10-04 03:26:36,115 | INFO | ENV cpu_count: 4
+2026-10-04 03:26:36,116 | INFO | ENV pandas: 3.0.6
+2026-10-04 03:26:36,117 | INFO | ENV numpy: 2.4.6
+2026-10-04 03:26:36,118 | INFO | ENV sklearn: 1.9.1
+2026-10-04 03:26:36,118 | INFO | ENV xgboost: 3.2.0
+2026-10-04 03:26:36,118 | INFO | ENV runpod_pod_id: not on RunPod (local run)
+2026-10-04 03:26:36,119 | INFO | ENV gpu: none detected
+2026-10-04 03:26:36,522 | INFO | START  1. load raw data
+2026-10-04 03:26:36,583 | INFO | END    1. load raw data  (0.1s)
+2026-10-04 03:26:36,640 | INFO | START  2. data preparation
+2026-10-04 03:26:36,691 | INFO | END    2. data preparation  (0.1s)
+2026-10-04 03:26:37,034 | INFO | START  2.6 hourly resampling
+2026-10-04 03:26:37,687 | INFO | END    2.6 hourly resampling  (0.7s)
+2026-10-04 03:26:38,115 | INFO | START  2.7 imputation
+2026-10-04 03:26:42,577 | INFO | END    2.7 imputation  (4.5s)
+2026-10-04 03:26:53,877 | INFO | train rows=13780, test rows=2468, MU=34.222, SIGMA=28.364
+2026-10-04 03:26:53,937 | INFO | START  4. tune Ridge
+2026-10-04 03:26:55,909 | INFO | END    4. tune Ridge  (2.0s)
+2026-10-04 03:26:55,934 | INFO | Ridge: best CV RMSE_z=0.7544 | params={'model__alpha': np.float64(98.77700294007911), 'poly__degree': 2}
+2026-10-04 03:26:55,941 | INFO | START  4. tune KNN
+2026-10-04 03:26:59,288 | INFO | END    4. tune KNN  (3.3s)
+2026-10-04 03:26:59,967 | INFO | KNN: best CV RMSE_z=0.7459 | params={'model__n_neighbors': 24, 'model__p': 1, 'model__weights': 'distance'}
+2026-10-04 03:26:59,979 | INFO | START  4. tune SVR
+2026-10-04 03:27:10,320 | INFO | END    4. tune SVR  (10.3s)
+2026-10-04 03:27:15,684 | INFO | SVR: best CV RMSE_z=0.7471 | params={'model__C': np.float64(2.0914981329035602), 'model__epsilon': np.float64(0.07101911742238941), 'model__gamma': np.float64(0.030586566669785254)}
+2026-10-04 03:27:15,693 | INFO | START  4. tune Random Forest
+2026-10-04 03:29:41,896 | INFO | END    4. tune Random Forest  (146.2s)
+2026-10-04 03:29:42,221 | INFO | Random Forest: best CV RMSE_z=0.7172 | params={'max_depth': None, 'max_features': 0.4, 'min_samples_leaf': 7, 'n_estimators': 423}
+2026-10-04 03:29:42,234 | INFO | START  4. tune XGBoost
+2026-10-04 03:30:02,187 | INFO | END    4. tune XGBoost  (20.0s)
+2026-10-04 03:30:02,224 | INFO | XGBoost: best CV RMSE_z=0.7179 | params={'colsample_bytree': np.float64(0.7888859700647797), 'learning_rate': np.float64(0.014308552498147852), 'max_depth': 8, 'min_child_weight': 3, 'n_estimators': 204, 'reg_lambda': np.float64(1.956661354644642), 'subsample': np.float64(0.9083868719818244)}
+2026-10-04 03:30:02,234 | INFO | START  4. stacking ensemble
+2026-10-04 03:30:23,773 | INFO | END    4. stacking ensemble  (21.5s)
+2026-10-04 03:30:30,838 | INFO | BEST MODEL = XGBoost | test RMSE_z=0.7035 | R2=0.2219
+2026-10-04 03:30:35,002 | INFO | START  5. forecasting
+2026-10-04 03:30:35,227 | INFO | END    5. forecasting  (0.2s)
+2026-10-04 03:30:39,330 | INFO | START  6. evidently monitoring
+2026-10-04 03:30:46,203 | INFO | END    6. evidently monitoring  (6.9s)
+2026-10-04 03:30:46,749 | INFO | Evidently: drifted columns train->test = 5/11
+2026-10-04 03:30:46,766 | INFO | PIPELINE COMPLETE in 250.7s — summary written to run_summary_local.json

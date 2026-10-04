@@ -1,0 +1,40 @@
+{
+  "model_name": "XGBoost",
+  "best_params": {
+    "colsample_bytree": 0.7888859700647797,
+    "learning_rate": 0.014308552498147852,
+    "max_depth": 8,
+    "min_child_weight": 3,
+    "n_estimators": 204,
+    "reg_lambda": 1.956661354644642,
+    "subsample": 0.9083868719818244
+  },
+  "test_metrics": {
+    "RMSE_z": 0.7035,
+    "MAE_z": 0.432,
+    "R2": 0.2219,
+    "RMSE_ugm3": 19.9538,
+    "MAE_ugm3": 12.254,
+    "AQI_accuracy_%": 70.9076,
+    "CV_RMSE_z": 0.7179,
+    "train_RMSE_z": 0.5165,
+    "overfit_gap": 0.187,
+    "fit_time_s": 19.9522
+  },
+  "features": [
+    "hour_sin",
+    "hour_cos",
+    "is_peak_dry_season",
+    "latitude",
+    "longitude",
+    "temperature",
+    "humidity",
+    "is_airgradient",
+    "device_level"
+  ],
+  "target": "global Z-score of PM2.5 (\u00b5g/m\u00b3)",
+  "mu": 34.22155602140204,
+  "sigma": 28.363664233017925,
+  "train_period": "2026-01-01 03:00:00 to 2026-06-02 05:00:00",
+  "test_period": "2026-06-02 06:00:00 to 2026-06-03 06:00:00"
+}

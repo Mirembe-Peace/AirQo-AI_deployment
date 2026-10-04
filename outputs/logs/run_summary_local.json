@@ -1,0 +1,108 @@
+{
+  "run_finished": "2026-10-04T03:30:46",
+  "total_runtime_s": 250.7,
+  "stage_times_s": {
+    "1. load raw data": 0.06,
+    "2. data preparation": 0.05,
+    "2.6 hourly resampling": 0.65,
+    "2.7 imputation": 4.46,
+    "4. tune Ridge": 1.97,
+    "4. tune KNN": 3.35,
+    "4. tune SVR": 10.34,
+    "4. tune Random Forest": 146.2,
+    "4. tune XGBoost": 19.95,
+    "4. stacking ensemble": 21.54,
+    "5. forecasting": 0.22,
+    "6. evidently monitoring": 6.87
+  },
+  "environment": {
+    "python": "3.11.15",
+    "platform": "Linux-6.18.44-fc-v64-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count": 4,
+    "pandas": "3.0.6",
+    "numpy": "2.4.6",
+    "sklearn": "1.9.1",
+    "xgboost": "3.2.0",
+    "runpod_pod_id": "not on RunPod (local run)",
+    "gpu": "none detected"
+  },
+  "best_model": "XGBoost",
+  "best_model_test_metrics": {
+    "RMSE_z": 0.7035,
+    "MAE_z": 0.432,
+    "R2": 0.2219,
+    "RMSE_ugm3": 19.9538,
+    "MAE_ugm3": 12.254,
+    "AQI_accuracy_%": 70.9076,
+    "CV_RMSE_z": 0.7179,
+    "train_RMSE_z": 0.5165,
+    "overfit_gap": 0.187,
+    "fit_time_s": 19.9522
+  },
+  "all_models_test": {
+    "XGBoost": {
+      "RMSE_z": 0.7035,
+      "MAE_z": 0.432,
+      "R2": 0.2219,
+      "RMSE_ugm3": 19.9538,
+      "AQI_accuracy_%": 70.9076
+    },
+    "Stacking Ensemble": {
+      "RMSE_z": 0.7039,
+      "MAE_z": 0.425,
+      "R2": 0.2209,
+      "RMSE_ugm3": 19.9663,
+      "AQI_accuracy_%": 71.8801
+    },
+    "Random Forest": {
+      "RMSE_z": 0.707,
+      "MAE_z": 0.4237,
+      "R2": 0.2141,
+      "RMSE_ugm3": 20.0536,
+      "AQI_accuracy_%": 71.2723
+    },
+    "KNN": {
+      "RMSE_z": 0.7323,
+      "MAE_z": 0.4364,
+      "R2": 0.157,
+      "RMSE_ugm3": 20.7694,
+      "AQI_accuracy_%": 68.9627
+    },
+    "Ridge": {
+      "RMSE_z": 0.7337,
+      "MAE_z": 0.4375,
+      "R2": 0.1536,
+      "RMSE_ugm3": 20.8107,
+      "AQI_accuracy_%": 72.3258
+    },
+    "SVR": {
+      "RMSE_z": 0.7628,
+      "MAE_z": 0.4149,
+      "R2": 0.0853,
+      "RMSE_ugm3": 21.6348,
+      "AQI_accuracy_%": 73.906
+    },
+    "Baseline: sensor mean": {
+      "RMSE_z": 0.8417,
+      "MAE_z": 0.6474,
+      "R2": -0.1139,
+      "RMSE_ugm3": 23.8741,
+      "AQI_accuracy_%": 48.7439
+    },
+    "Baseline: global mean": {
+      "RMSE_z": 0.8496,
+      "MAE_z": 0.6642,
+      "R2": -0.1349,
+      "RMSE_ugm3": 24.098,
+      "AQI_accuracy_%": 72.5284
+    }
+  },
+  "n_train": 13780,
+  "n_test": 2468,
+  "artifacts": {
+    "model": "models/best_pm25_model.joblib",
+    "forecasts": "outputs/forecasts",
+    "evidently": "outputs/evidently"
+  }
+}
